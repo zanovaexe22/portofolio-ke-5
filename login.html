@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login ke zanova.exe</title>
+    <style>
+        body {
+            background: #101325;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: #1a1d36;
+            padding: 32px 24px 20px 24px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            width: 320px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 24px;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #b3b3b3;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            background: #23244c;
+            color: #fff;
+            font-size: 1em;
+        }
+        input[type="submit"] {
+            background: #3b8cff;
+            color: #fff;
+            border: none;
+            padding: 10px 0;
+            border-radius: 4px;
+            width: 100%;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        .error {
+            color: #ff7675;
+            margin-bottom: 10px;
+            font-size: 0.98em;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login ke zanova.exe</h2>
+        <form id="loginForm" autocomplete="off">
+            <div class="error" id="errorMsg" style="display:none;"></div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const errorMsg = document.getElementById('errorMsg');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+
+            if (username === "zanova" && password === "zanovaexe22") {
+                errorMsg.style.display = "none";
+                // Redirect or show success
+                alert("Login berhasil! Selamat datang di zanova.exe");
+                // window.location.href = "halaman-anda.html"; // Ganti dengan halaman tujuan setelah login
+            } else {
+                errorMsg.textContent = "Username atau password salah.";
+                errorMsg.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
