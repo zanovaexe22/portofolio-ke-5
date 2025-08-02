@@ -19,3 +19,40 @@ document.querySelectorAll('.accordion-btn').forEach(btn => {
     });
   });
 });
+
+// Navigation bar animation on scroll
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('nav');
+  if (window.scrollY > 50) { // Add 'scrolled' class when scrolled down 50px
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+
+  // Fade-in elements on scroll
+  const elementsToAnimate = document.querySelectorAll('.profile-img, h1, .profile p, .accordion-item, blockquote');
+  elementsToAnimate.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+    const viewportHeight = window.innerHeight;
+
+    // Trigger animation when element is 80% visible in the viewport
+    if (elementTop < viewportHeight * 0.8) {
+      element.classList.add('fade-in');
+    }
+  });
+});
+
+// Initial load animations for navigation bar items
+document.addEventListener('DOMContentLoaded', () => {
+  const logo = document.querySelector('.logo');
+  logo.style.opacity = '1';
+  logo.style.transform = 'translateX(0)';
+
+  const navItems = document.querySelectorAll('nav ul li');
+  navItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.style.opacity = '1';
+      item.style.transform = 'translateY(0)';
+    }, 100 * index); // Stagger the animation
+  });
+});
